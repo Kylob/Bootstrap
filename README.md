@@ -25,6 +25,8 @@ Add the following to your ``composer.json`` file.
 ## Example Usage
 
 ```php
+<?php
+
 use BootPress\Bootstrap\v3\Component as Bootstrap;
 
 $bp = new Bootstrap;
