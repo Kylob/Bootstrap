@@ -47,8 +47,6 @@ class Common
                 return $this->$name;
                 break;
         }
-
-        return;
     }
 
     /**
@@ -60,16 +58,7 @@ class Common
      */
     public function __isset($name)
     {
-        switch ($name) {
-            case 'table':
-            case 'navbar':
-            case 'pagination':
-
-                return true;
-                break;
-        }
-
-        return false;
+        return (in_array($name, array('table', 'navbar', 'pagination'))) ? true : false;
     }
 
     /**
@@ -894,19 +883,19 @@ class Common
      * @return string
      *
      * ```php
-     * $bp->list_group(array(
+     * $bp->listGroup(array(
      *     'Basic',
      *     'List',
      *     $bp->badge(1) . ' Group',
      * ));
      *
-     * $bp->list_group(array(
+     * $bp->listGroup(array(
      *     'Linked' => '#',
      *     'List' => '#',
      *     'Group ' . $bp->badge(2) => '#',
      * ), 'Linked');
      *
-     * $bp->list_group(array(
+     * $bp->listGroup(array(
      *     '<h4>Custom</h4> <p>List</p>' => '#',
      *     $bp->badge(3) . ' <h4>Group</h4> <p>Linked</p>' => '#',
      * ), 1);
