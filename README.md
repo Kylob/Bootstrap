@@ -357,7 +357,7 @@ echo $bp->button('default', 'Dropdown', array(
         'Active link' => '#', 
         '',
         'Separated link' => '#',
-        'Disabled link' => '#'
+        'Disabled link' => '#',
     ),
     'active' => 'Active link',
     'disabled' => 'Disabled link',
