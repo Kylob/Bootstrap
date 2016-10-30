@@ -342,7 +342,7 @@ class Common
      *         'Active link' => '#',
      *         '',
      *         'Separated link' => '#',
-     *         'Disabled link' => '#'
+     *         'Disabled link' => '#',
      *     ),
      *     'active' => 'Active link',
      *     'disabled' => 'Disabled link',
@@ -605,7 +605,7 @@ class Common
      *         'Read ' => '#',
      *         'Trashed ' => '#',
      *         '',
-     *         'Spam ' . $bp->badge(2) => '#'
+     *         'Spam ' . $bp->badge(2) => '#',
      *     ),
      * ), array(
      *     'active' => 'Home',
@@ -1010,7 +1010,7 @@ class Common
      *     ),
      * ), array(
      *     'active' => 'This',
-     *     'fade,'
+     *     'fade',
      * ));
      * ```
      */
