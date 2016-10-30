@@ -329,7 +329,7 @@ Twig
 ```twig
 {{ bp.button('primary', 'Primary') }}
 
-{{ bp.button('lg success', 'Link', ['href':'#',]) }}
+{{ bp.button('lg success', 'Link', ['href':'#']) }}
 
 {{ bp.button('link', 'Button') }}
 ```
