@@ -495,7 +495,7 @@ echo $bp->pills(array(
         'Read ' => '#',
         'Trashed ' => '#',
         '',
-        'Spam ' . $bp->badge(2) => '#'
+        'Spam ' . $bp->badge(2) => '#',
     ),
 ), array(
     'active' => 'Home',
