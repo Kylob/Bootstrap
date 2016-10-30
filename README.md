@@ -1047,7 +1047,7 @@ echo $bp->toggle('tabs', array(
     ),
 ), array(
     'active' => 'This',
-    'fade,'
+    'fade',
 ));
 ```
 
