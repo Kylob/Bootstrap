@@ -1028,13 +1028,14 @@ class Common
     /**
      * Creates toggleable tabs and pills for transitioning through panes of local content.
      *
-     * @param string $type    Specify either '**tabs**' or '**pills**'
-     * @param array  $links   An ``array($name => $html, ...)`` of content to toggle through. If $html is an array unto itself, then it will be turned into a dropdown menu with the same header and divider rules applied as with ``$bp->buttons()``
+     * @param string $type    Specify either '**tabs**' or '**pills**'.
+     * @param array  $links   An ``array($name => $html, ...)`` of content to toggle through. If **$html** is an array unto itself, then it will be turned into a dropdown menu with the same header and divider rules applied as with ``$bp->buttons()``.
      * @param array  $options The available options are:
      *
-     * - '**fade**' - No key, just the value. Will give your panes a fade in effect while toggling.
-     * - '**active**' and '**disabled**' => **$name**, **$html** (if you dare), or number (starting from 1)
-     * - 'align' => '**justified**', '**left**', or '**right**'
+     * - '**fade**' - No key, just the value. This will give your panes a fade in effect while toggling.
+     * - '**active**' => **$name**, **$html** (if you dare), or an **integer** (starting from 1).
+     * - '**disabled**' => **$name**, **$html** (if you dare), or an **integer** (starting from 1).
+     * - '**align**' => '**justified**', '**left**', or '**right**'.
      *
      * @return string
      *
@@ -1117,11 +1118,11 @@ class Common
     }
 
     /**
-     * Bootstrap accordions are basically collapsible panels, so keep that in mind. That is essentially what you are creating here.
+     * Bootstrap accordions are basically collapsible panels. That is essentially what you are creating here.
      *
-     * @param string $class    Either '**default**', '**primary**', '**success**', '**info**', '**warning**', or '**danger**'. These only apply to the head section, and are passed directly by us into ``$bp->panel()``
-     * @param array  $sections An ``array($heading => $body, ...)`` of sections that will become your accordion. The ``<h1-6>`` headers in the **$heading** will be automatically classed appropriately. Accordions are definitely nestable, but we don't create them via nested arrays through this method. Just add a pre-made accordion to the **$body** you would like it to reside in ie. the **$body** should never be an array
-     * @param int    $open     This is the panel number you would like be open from the get-go (starting at 1). If you don't want any to be open initially, then set this to 0
+     * @param string $class    Either '**default**', '**primary**', '**success**', '**info**', '**warning**', or '**danger**'. These only apply to the head section, and are passed directly by us into ``$bp->panel()``.
+     * @param array  $sections An ``array($heading => $body, ...)`` of sections that will become your accordion. The ``<h1-6>`` headers in the **$heading** will be automatically classed appropriately. Accordions are definitely nestable, but we don't create them via nested arrays through this method. Just add a pre-made accordion to the **$body** you would like it to reside in ie. the **$body** should never be an array.
+     * @param int    $open     This is the panel number you would like be open from the get-go (starting at 1). If you don't want any panel to be opened initially, then set this to 0.
      *
      * @return string
      *
@@ -1178,12 +1179,12 @@ class Common
     /**
      * Creates a Bootstrap carousel for cycling through elements. Those elements don't necessarily need to be images, but pretty much they always are.
      *
-     * @param array $images  An ``array($image, ...)`` of images to cycle through, starting with the first (logically). To get fancy and add captions, then make this an ``array($image => $caption, ...)`` of images with captions to cycle through. If you have some images with captions and others without, then you can merge these two concepts no problem. Remember, the **$image** is not just a location, it is the entire ``<img>`` tag src and all
-     * @param array $options The available option keys are:
+     * @param array $images  An ``array($image, ...)`` of images to cycle through, starting with the first (logically). To get fancy and add captions, then make this an ``array($image => $caption, ...)`` of images with captions to cycle through. If you have some images with captions and others without, then you can merge these two concepts no problem. Remember, the **$image** is not just a location, it is the entire ``<img>`` tag src and all.
+     * @param array $options The available options are:
      *
-     * - '**interval**' - The time delay in thousandths of a second between cycles (or frame changes). The default is 5000 ie. 5 seconds.
-     * - '**indicators**' - Those little circle things at the bottom to give you an idea of where you are at. If you don't want them, then set this to false. The default is true ie. include them.
-     * - '**controls**' - The clickable arrows on the side that you can click to get to what you are interested in. If you don't want them, then set this to false. The default is true ie. include them. Also by default we use ``array($bp->icon('chevron-left'), $bp->icon('chevron-right'))`` for the left and right arrows. If you would like something else, then you can make this an array of your preferences
+     * - '**interval**' => The time delay in thousandths of a second between cycles (or frame changes). The default is **5000** ie. 5 seconds.
+     * - '**indicators**' => The little circle things at the bottom that show where you are at. If you don't want them, then set this to **false**. The default is **true** ie. include them.
+     * - '**controls**' => The clickable arrows on the side for scrolling back and forth.  If you don't want them, then set this to **false**. The default is **true** ie. include them. Also by default we use ``array($bp->icon('chevron-left'), $bp->icon('chevron-right'))`` for the left and right arrows. If you would like something else, then you can make this an array of your preferences.
      *
      * @return string
      *
