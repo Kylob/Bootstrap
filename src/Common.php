@@ -69,6 +69,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * echo $bp->row('sm', array(
      *     $bp->col(3, 'left'),
@@ -112,6 +114,8 @@ class Common
      *
      * @return array The parameters passed to it.
      *
+     * @example
+     *
      * ```php
      * echo $bp->row('sm', 'md', 'lg', array(
      *     $bp->col(12, '9 push-3', '10 push-2', 'content'),
@@ -137,6 +141,8 @@ class Common
      * For Definition Lists this is an ``array($title => $definition, ...)``. If you have multiple ``$definition``'s, then just make ``$title`` an array of them
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->lister('ol', array(
@@ -198,6 +204,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * echo $bp->search('http://example.com');
      * ```
@@ -247,6 +255,8 @@ class Common
      *
      * @return object
      *
+     * @example
+     *
      * ```php
      * $form = $bp->form('sign_in');
      *
@@ -290,6 +300,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * echo $bp->icon('asterisk');
      * ```
@@ -328,6 +340,8 @@ class Common
      * - '**pull**' - Either 'left' (default) or 'right'. Where you would like the dropdown to be relative to the parent
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->button('primary', 'Primary');
@@ -403,6 +417,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * echo $bp->group('', array(
      *     $bp->button('default', 'Left'),
@@ -446,6 +462,8 @@ class Common
      * - '**align**' => '**left**' (default) or '**right**' - the direction you would like to pull them towards
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->links('a special-class', array(
@@ -552,6 +570,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * echo $bp->tabs(array(
      *     'Nav' => '#',
@@ -595,6 +615,8 @@ class Common
      *   - '**left**' (default) or '**right**' - The direction you would like to pull them towards
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->pills(array(
@@ -641,6 +663,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * $bp->breadcrumbs(array(
      *     'Home' => '#',
@@ -679,6 +703,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * echo $bp->label('default', 'New');
      * ```
@@ -697,6 +723,8 @@ class Common
      * @param string $align This will pull your badge '**right**' or '**left**' or not (default). In a list group, badges are automatically positioned to the right
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->badge(13, 'right');
@@ -717,6 +745,8 @@ class Common
      * @param bool   $dismissable If you set this to false, then the alert will not be dismissable
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->alert('info', '<h3>Heads up!</h3> This alert needs your attention, but it\'s not <a href="#">super important</a>.');
@@ -749,6 +779,8 @@ class Common
      * @param mixed  $display If $display !== false, then the percentage will be displayed in the progress bar
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->progress(60, 'info', 'display');
@@ -794,6 +826,8 @@ class Common
      *   - This could go on ad infinitum, but soon your content will become pretty scrunched up if you take it too far
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->media(array(
@@ -882,6 +916,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * $bp->listGroup(array(
      *     'Basic',
@@ -942,6 +978,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * echo $bp->panel('primary', array(
      *     'header' => '<h3>Title</h3>',
@@ -999,6 +1037,8 @@ class Common
      * - 'align' => '**justified**', '**left**', or '**right**'
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->toggle('tabs', array(
@@ -1085,6 +1125,8 @@ class Common
      *
      * @return string
      *
+     * @example
+     *
      * ```php
      * echo $bp->accordion('info', array(
      *     '<h4>Group Item #1</h4>' => 'One',
@@ -1144,6 +1186,8 @@ class Common
      * - '**controls**' - The clickable arrows on the side that you can click to get to what you are interested in. If you don't want them, then set this to false. The default is true ie. include them. Also by default we use ``array($bp->icon('chevron-left'), $bp->icon('chevron-right'))`` for the left and right arrows. If you would like something else, then you can make this an array of your preferences
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo '<div style="width:500px; height:300px; margin:20px auto;">';
