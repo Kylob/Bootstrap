@@ -64,8 +64,8 @@ class Common
     /**
      * This method works in conjunction with ``$bp->col()`` below.  It makes things a little less verbose, but much easier to edit, modify, and see at a glance what in the world is going on.
      *
-     * @param string $size    This value can be either '**xs**' < 768px, '**sm**' >= 768px, '**md**' >= 992 , or '**lg**' >= 1200. This is the point at which your grid will break, if no smaller size is indicated. With this method you can indicate multiple sizes by simply inserting another argument. All of your ``$size``'s must correspond with the values given in the ``$bp->col()``'s or ``$columns`` below
-     * @param array  $columns An array of ``$bp->col()``'s.  This argument does not need to be the second one in line.  It is merely the last one given
+     * @param string $size    This value can be either '**xs**' < 768px, '**sm**' >= 768px, '**md**' >= 992 , or '**lg**' >= 1200. This is the point at which your grid will break, if no smaller size is indicated. With this method you can indicate multiple sizes by simply inserting another argument. All of your ``$size``'s must correspond with the values given in the ``$bp->col()``'s or ``$columns`` below.
+     * @param array  $columns An array of ``$bp->col()``'s.  This argument does not need to be the second one in line.  It is merely the last one given.
      *
      * @return string
      *
@@ -135,10 +135,10 @@ class Common
      *
      * - '**list-inline**' - For an unordered list to be displayed horizontally.
      * - '**list-unstyled**' - For an unordered list to be unbulleted.
-     * - '**dl-horizontal**' - For a definition to be displayed beside it's title rather than below
+     * - '**dl-horizontal**' - For a definition to be displayed beside it's title rather than below.
      * @param array $list For Ordered and Unordered lists this is an ``array($li, $li, ...)``, and to nest another list just make the ``$li`` another array.
      *
-     * For Definition Lists this is an ``array($title => $definition, ...)``. If you have multiple ``$definition``'s, then just make ``$title`` an array of them
+     * For Definition Lists this is an ``array($title => $definition, ...)``. If you have multiple ``$definition``'s, then just make ``$title`` an array of them.
      *
      * @return string
      *
@@ -200,7 +200,7 @@ class Common
      * - '**button**' - The button itself with tags and all, or just a name. The default is ``$bp->icon('search')``.
      *   - If you don't want a button at all then just give this an empty value.
      * - '**class**' - Any special class(es) to give the ``<form>`` tag. The default is '**form-horizontal**'.
-     * - '**size**' - Either '**sm**', '**md**' (the default), or '**lg**'
+     * - '**size**' - Either '**sm**', '**md**' (the default), or '**lg**'.
      *
      * @return string
      *
@@ -250,8 +250,8 @@ class Common
     /**
      * Returns a BootPress\Form\Component instance with a few methods added for some Bootstrapped good looks.
      *
-     * @param string $name   The name of the form
-     * @param string $method The form's method for sending
+     * @param string $name   The name of the form.
+     * @param string $method The form's method for sending.
      *
      * @return object
      *
