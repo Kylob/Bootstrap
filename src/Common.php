@@ -294,9 +294,9 @@ class Common
     /**
      * Create an icon without the verbosity.
      *
-     * @param string $symbol The icon you would like to display without the base and icon class prefix
-     * @param string $prefix The base and icon class prefix. The default is a Bootstrap icon, but this can be used with any icon font by simply entering their value here
-     * @param string $tag    The tag to use for displaying your font. Everyone uses the ``<i>`` tag, so that is the default. If ``$prefix == 'glyphicon'`` (the default for Bootstrap) then we will use a span element. Why? I don't know, but since v.2 that seems to be what they prefer to use now. If you want to style an icon further then you can do so here. eg. ``'i style="font-size:16px;"'``
+     * @param string $symbol The icon you would like to display without the base and icon class prefix.
+     * @param string $prefix The base and icon class prefix. The default is a Bootstrap icon, but this can be used with any icon font by simply entering their prefix value here.
+     * @param string $tag    The tag to use for displaying your font. Everyone uses the ``<i>`` tag, so that is the default. If ``$prefix == 'glyphicon'`` (the default for Bootstrap) then we will use a span element. Why? I don't know, but since v.2 that seems to be what they prefer to use now. If you want to style an icon further then you can do so here. eg. ``'i style="font-size:16px;"'``.
      *
      * @return string
      *
@@ -328,16 +328,16 @@ class Common
     /**
      * A button by itself is easy enough, but when you start including dropdowns and groups your markup can get ugly quick. Follow the examples. We'll start simple and go from there.
      *
-     * @param string $class   The classes: '**xs**', '**sm**', '**lg**', '**block**', '**default**', '**primary**', '**success**', '**info**', '**warning**', '**danger**', and '**link**' will all be prefixed with 'btn', and we include the 'btn' class too. Notice how we left out the 'btn-group' option? Don't worry about that one. Feel free to add any more that you like such as '**disabled**'
-     * @param string $name    The text of your button. You may also include badges, labels, icons, etc, but leave the caret up to us. If you are including a dropdown menu and you would like to split the button from the menu, then you can make this an ``array('split' => $name)``
-     * @param array  $options These are all of the attributes that you would like to include in the ``<button>`` tag, except if you include an 'href' key then it will be an ``<a>`` tag. Other potential options include: 'id', 'style', 'title', 'type', 'data-...', etc, but the ones we take notice of and do special things with are:
+     * @param string $class   The classes: '**xs**', '**sm**', '**lg**', '**block**', '**default**', '**primary**', '**success**', '**info**', '**warning**', '**danger**', and '**link**' will all be prefixed with '**btn**', and we include the '**btn**' class too. Notice how we left out the '**btn-group**' option? Don't worry about that one. Feel free to add any more that you like such as '**disabled**'.
+     * @param string $name    The text of your button. You may also include badges, labels, icons, etc, but leave the caret up to us. If you are including a dropdown menu and you would like to split the button from the menu, then you can make this an ``array('split' => $name)``.
+     * @param array  $options These are all of the attributes that you would like to include in the ``<button>`` tag, except if you include an '**href**' key then it will be an ``<a>`` tag. Other potential options include: '**id**', '**style**', '**title**', '**type**', '**data-...**', etc, but the ones we take notice of and do special things with are:
      *
-     * - '**dropdown**' - This is an ``array($name => $link, ...)`` of names and their associated links.
+     * - '**dropdown**' => This is an ``array($name => $link, ...)`` of names and their associated links.
      *   - If the **$name** is numeric (ie. not specified) then the **$link** will be a header (if it is not empty), or a divider if it is.
-     * - '**dropup**' - The same as dropdown, only the caret and menu goes up instead of down.
-     * - '**active**' - This is to specify a $link that will receive the "active" class. You can set this value to either the **$name** or the **$link** of your dropdown menu, or a number (starting from 1). If you just want it to select the current page then you can specify '**url**' which will match the current url and uri, or '**urlquery**' which will match the current url, uri, and query string.
-     * - '**disabled**' - This is to specify a link that will receive the "disabled" class. You can set this value to either the **$name** or the **$link** of your dropdown menu.
-     * - '**pull**' - Either 'left' (default) or 'right'. Where you would like the dropdown to be relative to the parent
+     * - '**dropup**' => The same as dropdown, only the caret and menu goes up instead of down.
+     * - '**active**' => This is to specify a **$link** that will receive the "**active**" class. You can set this value to either the **$name** or the **$link** of your dropdown menu, or an **integer** (starting from 1). If you just want it to select the current page then you can specify '**url**' which will match the current url and path, or '**urlquery**' which will match the current url, path, and query string.
+     * - '**disabled**' => This is to specify a link that will receive the "disabled" class. You can set this value to either the **$name** or the **$link** of your dropdown menu.
+     * - '**pull**' => Either '**left**' (default) or '**right**'. Where you would like the dropdown to be positioned, relative to the parent.
      *
      * @return string
      *
@@ -411,9 +411,9 @@ class Common
     /**
      * Group your buttons together.
      *
-     * @param string $class   The classes: '**xs**', '**sm**', '**lg**', '**justified**', and '**vertical**' will all be prefixed with 'btn-group', and we include the 'btn-group' class too. When you size a group up, then don't size the individual buttons
-     * @param array  $buttons An ``array($bp->button(), ...)`` of buttons
-     * @param string $form    This can be either '**checkbox**' or '**radio**' and your button group will act accordingly
+     * @param string $class   The classes: '**xs**', '**sm**', '**lg**', '**justified**', and '**vertical**' will all be prefixed with '**btn-group**', and we include the '**btn-group**' class too. When you size a group up, then don't size the individual buttons.
+     * @param array  $buttons An ``array($bp->button(), ...)`` of buttons.
+     * @param string $form    This can be either '**checkbox**' or '**radio**' and your button group will act accordingly.
      *
      * @return string
      *
@@ -453,13 +453,13 @@ class Common
     /**
      * This used to be a private method that we only used internally for tabs and pills and buttons and so forth, but it is just so useful. Now you can make your own dropdowns with regular ``<a>`` links as well.
      *
-     * @param string $tag     If this isn't 'li', then it will be an '**a**'. If you specify 'li' tags then you will need to surround this method's output with your own ``<ul>`` or ``<ol>`` tags. Otherwise you can just use the returned ``<a>`` $links (with dropdowns if any) as is. The ``<a>``'s with dropdowns will be surrounded by a ``<span class="dropdown">``. If one of those dropdown links are active then the ``<span>`` and ``<a>`` tags will receive an additional 'active' class as well. To add any other class(es) to the ``<a>`` or ``<li>`` tags just add them after the $tag here eg. '**a special-class**'
-     * @param array  $links   An ``array($name => $href, ...)`` of links. If **$href** is an array unto itself, then it will be turned into a dropdown menu with the same header and divider rules applied as with ``$bp->buttons()``
+     * @param string $tag     If this isn't 'li', then it will be an '**a**'. If you specify 'li' tags then you will need to surround this method's output with your own ``<ul>`` or ``<ol>`` tags. Otherwise you can just use the returned ``<a>`` $links (with dropdowns if any) as is. The ``<a>``'s with dropdowns will be surrounded by a ``<span class="dropdown">``. If one of those dropdown links are active then the ``<span>`` and ``<a>`` tags will receive an additional 'active' class as well. To add any other class(es) to the ``<a>`` or ``<li>`` tags just add them after the $tag here eg. '**a special-class**'.
+     * @param array  $links   An ``array($name => $href, ...)`` of links. If **$href** is an array unto itself, then it will be turned into a dropdown menu with the same header and divider rules applied as with ``$bp->buttons()``.
      * @param array  $options The available options are:
      *
-     * - '**active**' => **$name**, **$href**, '**url**', '**urlquery**', or a number (starting from 1)
-     * - '**disabled**' => **$name**, **$href** or a number (starting from 1)
-     * - '**align**' => '**left**' (default) or '**right**' - the direction you would like to pull them towards
+     * - '**active**' => **$name**, **$href**, '**url**', '**urlquery**', or an **integer** (starting from 1).
+     * - '**disabled**' => **$name**, **$href** or an **integer** (starting from 1).
+     * - '**align**' => '**left**' (default) or '**right**' - the direction you would like to pull them towards.
      *
      * @return string
      *
@@ -559,14 +559,14 @@ class Common
     /**
      * Creates a Bootstrap tabs nav menu.
      *
-     * @param array $links   An ``array($name => $href, ...)`` of links. If $href is an array unto itself, then it will be turned into a dropdown menu with the same header and divider rules applied as with ``$bp->buttons()``
+     * @param array $links   An ``array($name => $href, ...)`` of links. If **$href** is an array unto itself, then it will be turned into a dropdown menu with the same header and divider rules applied as with ``$bp->buttons()``.
      * @param array $options The available options are:
      *
-     * - '**active**' => **$name**, **$href**, '**url**', '**urlquery**', or a number (starting from 1)
-     * - '**disabled**' => **$name**, **$href**, or a number (starting from 1)
+     * - '**active**' => **$name**, **$href**, '**url**', '**urlquery**', or an **integer** (starting from 1).
+     * - '**disabled**' => **$name**, **$href**, or an **integer** (starting from 1).
      * - '**align**' =>
-     *   - '**justified**' - So the tabs will horizontally extend the full width
-     *   - '**left**' (default) or '**right**' - The direction you would like to pull them towards
+     *   - '**justified**' - So the tabs will horizontally extend the full width.
+     *   - '**left**' (default) or '**right**' - The direction you would like to pull them towards.
      *
      * @return string
      *
@@ -604,15 +604,15 @@ class Common
     /**
      * Creates a Bootstrap pills nav menu.
      *
-     * @param array $links   An ``array($name => $href, ...)`` of links. If $href is an array unto itself, then it will be turned into a dropdown menu with the same header and divider rules applied as with ``$bp->buttons()``
+     * @param array $links   An ``array($name => $href, ...)`` of links. If **$href** is an array unto itself, then it will be turned into a dropdown menu with the same header and divider rules applied as with ``$bp->buttons()``.
      * @param array $options The available options are:
      *
-     * - '**active**' => **$name**, **$href**, '**url**', '**urlquery**', or number (starting from 1)
-     * - '**disabled**' => **$name**, **$href** or number (starting from 1)
+     * - '**active**' => **$name**, **$href**, '**url**', '**urlquery**', or an **integer** (starting from 1).
+     * - '**disabled**' => **$name**, **$href** or an **integer** (starting from 1).
      * - '**align**' =>
-     *   - '**justified**' - The pills will horizontally extend the full width
-     *   - '**vertical**' or '**stacked**' - Each pill will be stacked on top of the other
-     *   - '**left**' (default) or '**right**' - The direction you would like to pull them towards
+     *   - '**justified**' - The pills will horizontally extend the full width.
+     *   - '**vertical**' or '**stacked**' - Each pill will be stacked on top of the other.
+     *   - '**left**' (default) or '**right**' - The direction you would like to pull them towards.
      *
      * @return string
      *
@@ -659,7 +659,7 @@ class Common
     /**
      * Creates a Bootstrap styled breadcrumb trail. The last link is automatically activated.
      *
-     * @param array $links An ``array($name => $href)`` of links to display. The ``$href`` may also be another ``array($name => $href)`` of dropdown links
+     * @param array $links An ``array($name => $href)`` of links to display. The **$href** may also be another ``array($name => $href)`` of dropdown links.
      *
      * @return string
      *
@@ -698,8 +698,8 @@ class Common
     /**
      * Creates a Bootstrap label, and saves you from having to type the label twice.  Awesome, right?
      *
-     * @param string $class Either '**default**', '**primary**', '**success**', '**info**', '**warning**', or '**danger**'. The label class and prefix are automatically included. You can add more classes to it if you like
-     * @param string $text  The label's text
+     * @param string $class Either '**default**', '**primary**', '**success**', '**info**', '**warning**', or '**danger**'. The '**label**' class and prefix are automatically included. You can add more classes to it if you like.
+     * @param string $text  The label's text.
      *
      * @return string
      *
@@ -717,10 +717,10 @@ class Common
     }
 
     /**
-     * Creates a Bootstrap badge, and is a bit more useful than ``$bp->label()``. If **$count** equals 0, or if it's not numeric (null?), then it still includes the tag but leaves the value empty.
+     * Creates a Bootstrap badge, and is a bit more useful than ``$bp->label()``. If **$count** equals 0, or if it's not numeric (null?), then it still includes the tag, but leaves the value empty.
      *
-     * @param int    $count The number you would like to display
-     * @param string $align This will pull your badge '**right**' or '**left**' or not (default). In a list group, badges are automatically positioned to the right
+     * @param int    $count The number you would like to display.
+     * @param string $align This will pull your badge '**right**' or '**left**' or not (default). In a list group, badges are automatically positioned to the right.
      *
      * @return string
      *
@@ -740,9 +740,9 @@ class Common
     /**
      * Creates Bootstrap alert messages.
      *
-     * @param string $type        Either '**success**', '**info**', '**warning**', or '**danger**'
-     * @param string $alert       The status message. All ``<h1-6>`` headers and ``<a>`` links will be classed appropriately
-     * @param bool   $dismissable If you set this to false, then the alert will not be dismissable
+     * @param string $type        Either '**success**', '**info**', '**warning**', or '**danger**'.
+     * @param string $alert       The status message. All ``<h1-6>`` headers and ``<a>`` links will be classed appropriately.
+     * @param bool   $dismissable If you set this to false, then the alert will not be dismissable.
      *
      * @return string
      *
@@ -774,9 +774,9 @@ class Common
     /**
      * Creates every flavor of progress bar that Bootstrap has to offer.
      *
-     * @param int    $percent The amount of progress from 0 to 100. In order to stack multiple values then turn this into an array
-     * @param string $class   You can include one of the four contextual classes: '**success**', '**info**', '**warning**' or '**danger**'. Also '**striped**' and '**active**' if you like the looks of those. These will all be properly prefixed. If you are stacking multiple bars, then turn this into an array and make sure your classes correspond with your percentages
-     * @param mixed  $display If $display !== false, then the percentage will be displayed in the progress bar
+     * @param int    $percent The amount of progress from 0 to 100. In order to stack multiple values then turn this into an array.
+     * @param string $class   You can include one of the four contextual classes: '**success**', '**info**', '**warning**' or '**danger**'. Also '**striped**' and '**active**' if you like the looks of those. These will all be properly prefixed with '**progress-...**'. If you are stacking multiple bars, then turn this into an array and make sure your classes correspond with your percentages.
+     * @param mixed  $display If anything but false, then the percentage will be displayed in the progress bar.
      *
      * @return string
      *
@@ -811,19 +811,19 @@ class Common
     /**
      * This is the easiest way I could devise of making Bootstrap media objects as manageable as possible. ``<h1-6>`` headers and ``<img>``es will automatically be classed appropriately.
      *
-     * @param array $list A media array row that looks like this: ``array($left, $body, $right)``
+     * @param array $list A media array row that looks like this: ``array($left, $body, $right)``.
      *
-     * - If you don't have an image or whatever for the left side, then set an empty value
-     * - If you have nothing to right align then you can either leave it off, or set an empty value
+     * - If you don't have an image or whatever for the left side, then set an empty value.
+     * - If you have nothing to right align then you can either leave it off, or set an empty value.
      * - If you have a special class and / or id to assign, then you can include them in the array like so:
      *   - ``array('id' => $id, 'class' => 'custom', $left, $body, $right);``
      * - You can pack unlimited $list's (arguments) into this method, each $list being a sibling of the other:
      *   - ``$bp->media(array($left, $body, $right), array($left, $body, $right), array($left, $body, $right));``
      * - To nest media lists in a parent / child relationship, just add another media array row to the parent:
-     *   - ``array($left, $body, $right, array($left, $body, $right, array($left, $body, $right)));`` - this would be a parent, child, grandchild arrangement
-     *   - ``array($left, $body, $right, array($left, $body, $right), array($left, $body, $right));`` - a parent, child, child condition
-     *   - ``array($left, $body, $right, array($left, $body, $right, array($left, $body, $right), array($left, $body, $right)), array($left, $body, $right)), array($left, $body, $right));`` - now I'm just messing with you, but I think you've got the picture (a parent, child, grandchild, grandchild, child, sibling)
-     *   - This could go on ad infinitum, but soon your content will become pretty scrunched up if you take it too far
+     *   - ``array($left, $body, $right, array($left, $body, $right, array($left, $body, $right)));`` - This would be a parent, child, grandchild arrangement.
+     *   - ``array($left, $body, $right, array($left, $body, $right), array($left, $body, $right));`` - A parent, child, child condition.
+     *   - ``array($left, $body, $right, array($left, $body, $right, array($left, $body, $right), array($left, $body, $right)), array($left, $body, $right)), array($left, $body, $right));`` - Now I'm just messing with you, but I think you've got the picture (a parent, child, grandchild, grandchild, child, sibling).
+     *   - This could go on ad infinitum, but soon your content will become pretty scrunched up if you take it too far.
      *
      * @return string
      *
@@ -911,8 +911,8 @@ class Common
     /**
      * Creates a Bootstrap list group. ``<h1-6>`` Headers and ``<p>`` paragraphs will automatically be classed appropriately.
      *
-     * @param array $links  If you would like to create an unordered list, then this is just an array of values. Otherwise this will be an ``array($name => $href, ...)`` of links. **$name** badges will automatically be positioned on the right
-     * @param mixed $active This value can be either the **$name**, **$href** (link), or number (starting from 1) that you would like to be selected as "active"
+     * @param array $links  If you would like to create an unordered list, then this is just an array of values. Otherwise this will be an ``array($name => $href, ...)`` of links. **$name** badges will automatically be positioned on the right.
+     * @param mixed $active This value can be either the **$name**, **$href** (link), or an **integer** (starting from 1) that you would like to be selected as "**active**".
      *
      * @return string
      *
@@ -968,12 +968,12 @@ class Common
     /**
      * Creates a Bootstrap panel component.
      *
-     * @param string $class    Either '**default**', '**primary**', '**success**', '**info**', '**warning**', or '**danger**'. The panel class and prefix are automatically included. You can add more classes to it if you like
-     * @param array  $sections An ``array($panel => $content, ...)`` of sections. If $panel equals:
+     * @param string $class    Either '**default**', '**primary**', '**success**', '**info**', '**warning**', or '**danger**'. The '**panel**' class and prefix are automatically included. You can add more classes to it if you like.
+     * @param array  $sections An ``array($panel => $content, ...)`` of sections. If **$panel** equals:
      *
-     * - '**head**', '**header**', or '**heading**' - The panel heading $content. All ``<h1-6>`` headers will be classed appropriately
-     * - '**body**' - The panel body $content
-     * - '**foot**', '**footer**', or '**footing**' - The panel footer $content
+     * - '**head**', '**header**', or '**heading**' => The panel heading **$content**. All ``<h1-6>`` headers will be classed appropriately.
+     * - '**body**' => The panel body **$content**.
+     * - '**foot**', '**footer**', or '**footing**' => The panel footer **$content**.
      * - Anything else will just be inserted as is. It could be a table, or list group, or ...
      *
      * @return string
