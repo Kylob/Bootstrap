@@ -9,10 +9,12 @@ class Table extends \BootPress\Table\Component
     /**
      * Create a ``<table>``.
      *
-     * @param string|array $vars    ``<table>`` attributes.  Any '**responsive**', '**bordered**', '**striped**', '**hover**', and/or '**condensed**' class will be prefixed with a '**table-...**', and include the '**table** class as well
-     * @param string       $caption Table ``<caption>``
+     * @param string|array $vars    ``<table>`` attributes.  Any '**responsive**', '**bordered**', '**striped**', '**hover**', and/or '**condensed**' class will be prefixed with a '**table-...**', and include the '**table**' class as well.
+     * @param string       $caption Table ``<caption>``.
      *
      * @return string
+     *
+     * @example
      *
      * ```php
      * echo $bp->table->open('class=responsive striped');
