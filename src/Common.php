@@ -77,7 +77,7 @@ class Common
      * ));
      * ```
      */
-    public function row()
+    public function row($size, $columns)
     {
         $html = '';
         $prefix = array();
@@ -107,8 +107,8 @@ class Common
     /**
      * This is a helper method for ``$bp->row()`` above.  It only returns it's own arguments, but it helps to keep things straight.  Including arrays within arrays can get to be a little unwieldly, just take a look at the ``$bp->media()`` method.
      *
-     * @param mixed  $number This parameter must correspond with it's parent ``$bp->row($size)``. It can be an integer between 1 and 12, as long as all of the ``$bp->col()``'s respective numbers add up to 12 or less. To get fancy you can add a space, then an '**offset-**', '**push-**', or '**pull-**' followed by the number of columns that you would like to affect. All of these will be preceded by ``col-{$size}-...``. To include additional classes just keep on going with a space in between each like you normally would
-     * @param string $column The actual html content you would like to be placed in this column
+     * @param mixed  $number This parameter must correspond with it's parent ``$bp->row($size)``. It can be an integer between 1 and 12, as long as all of the ``$bp->col()``'s respective numbers add up to 12 or less. To get fancy you can add a space, then an '**offset-**', '**push-**', or '**pull-**' followed by the number of columns that you would like to affect. All of these will be preceded by ``col-{$size}-...``. To include additional classes just keep on going with a space in between each.
+     * @param string $column The actual html content you would like to be placed in this column.
      *
      * @return array The parameters passed to it.
      *
@@ -119,7 +119,7 @@ class Common
      * ));
      * ```
      */
-    public function col()
+    public function col($number, $column)
     {
         return func_get_args();
     }
