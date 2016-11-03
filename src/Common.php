@@ -328,7 +328,7 @@ class Common
     /**
      * A button by itself is easy enough, but when you start including dropdowns and groups your markup can get ugly quick. Follow the examples. We'll start simple and go from there.
      *
-     * @param string $class   The classes: '**xs**', '**sm**', '**lg**', '**block**', '**default**', '**primary**', '**success**', '**info**', '**warning**', '**danger**', and '**link**' will all be prefixed with '**btn**', and we include the '**btn**' class too. Notice how we left out the '**btn-group**' option? Don't worry about that one. Feel free to add any more that you like such as '**disabled**'.
+     * @param string $class   The classes: '**xs**', '**sm**', '**lg**', '**block**', '**default**', '**primary**', '**success**', '**info**', '**warning**', '**danger**', and '**link**' will all be prefixed with '**btn-...**', and we include the '**btn**' class too. Notice how we left out the '**btn-group**' option? Don't worry about that one. Feel free to add any more that you like such as '**disabled**'.
      * @param string $name    The text of your button. You may also include badges, labels, icons, etc, but leave the caret up to us. If you are including a dropdown menu and you would like to split the button from the menu, then you can make this an ``array('split' => $name)``.
      * @param array  $options These are all of the attributes that you would like to include in the ``<button>`` tag, except if you include an '**href**' key then it will be an ``<a>`` tag. Other potential options include: '**id**', '**style**', '**title**', '**type**', '**data-...**', etc, but the ones we take notice of and do special things with are:
      *
@@ -411,7 +411,7 @@ class Common
     /**
      * Group your buttons together.
      *
-     * @param string $class   The classes: '**xs**', '**sm**', '**lg**', '**justified**', and '**vertical**' will all be prefixed with '**btn-group**', and we include the '**btn-group**' class too. When you size a group up, then don't size the individual buttons.
+     * @param string $class   The classes: '**xs**', '**sm**', '**lg**', '**justified**', and '**vertical**' will all be prefixed with '**btn-group-...**', and we include the '**btn-group**' class too. When you size a group up, then don't size the individual buttons.
      * @param array  $buttons An ``array($bp->button(), ...)`` of buttons.
      * @param string $form    This can be either '**checkbox**' or '**radio**' and your button group will act accordingly.
      *
