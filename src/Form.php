@@ -368,11 +368,11 @@ class Form extends \BootPress\Form\Component
     /**
      * Used by ``$this->field()`` to create a ``<label>`` prompt.
      *
-     * @param string|array $prompt The form label reference
-     * @param string       $name   The name of the associated input field
-     * @param string       $id     The id of the associated input field
+     * @param string|array $prompt The form label reference.
+     * @param string       $name   The name of the associated input field.
+     * @param string       $id     The id of the associated input field.
      *
-     * @return string The generated HTML ``<label>``
+     * @return string The generated HTML ``<label>``.
      */
     private function label($prompt, $name, $id)
     {
