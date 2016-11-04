@@ -248,12 +248,12 @@ class Common
     }
 
     /**
-     * Returns a BootPress\Form\Component instance with a few methods added for some Bootstrapped good looks.
+     * Create a Bootstrapped good looking form.
      *
-     * @param string $name   The name of the form.
-     * @param string $method The form's method for sending.
+     * @param string $name   The name of your form.
+     * @param string $method How you would like the form to be sent ie. '**post**' or '**get**'.
      *
-     * @return object
+     * @return object A BootPress\Bootstrap\Form instance.
      *
      * @example
      *
