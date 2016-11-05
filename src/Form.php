@@ -60,10 +60,12 @@ class Form extends \BootPress\Form\Component
     }
 
     /**
-     * Display a user message after ``$form->eject()``ing them.  The Bootstrap alert status message will be displayed at the top of the form when you return ``$form->header()``.
+     * Display a message to your user after ``$form->eject()``ing them.  The Bootstrap alert status message will be displayed at the top of the form when you return ``$form->header()``.
      *
-     * @param string $status  Either '**success**', '**info**', '**warning**', or '**danger**'.  If this is '**html**', then the $message will be delivered as is
-     * @param string $message The message you would like to get across to your user.  ``<h1-6>`` headers and ``<a>`` links may be used.
+     * @param string $status  Either '**success**', '**info**', '**warning**', or '**danger**'.  If this is '**html**', then the $message will be delivered as is.
+     * @param string $message The message you would like to get across to your user.  ``<h1-6>`` headers and ``<a>`` links will be appropriately classed.
+     *
+     * @example
      *
      * ```php
      * if ($vars = $form->validator->certified()) {
@@ -85,6 +87,8 @@ class Form extends \BootPress\Form\Component
      *
      * @param string $input Either '**lg**' (large), '**md**' (medium - the default), or '**sm**' (small).
      *
+     * @example
+     *
      * ```php
      * $form->size('lg');
      * ```
@@ -101,9 +105,11 @@ class Form extends \BootPress\Form\Component
      *
      * - '**collapse**' - This will display the form prompt immediately above the field.
      * - '**inline**' - All of the fields will be inline with each other, and the form prompts will be removed.
-     * - '**horizontal**' - Vertically aligns all of the fields with the prompt immediately preceding, and right aligned
-     * @param string $collapse Either '**xs**', '**sm**', '**md**', or '**lg**'.  This is the breaking point so to speak for a '**horizontal**' form.  It is the device size on which the form will '**collapse**'
+     * - '**horizontal**' - Vertically aligns all of the fields with the prompt immediately preceding, and right aligned.
+     * @param string $collapse Either '**xs**', '**sm**', '**md**', or '**lg**'.  This is the breaking point so to speak for a '**horizontal**' form.  It is the device size on which the form will '**collapse**'.
      * @param int    $indent   The number of columns (up to 12) that you would like to indent the field in a '**horizontal**' form.
+     *
+     * @example
      *
      * ```php
      * $form->align('collapse');
@@ -125,9 +131,11 @@ class Form extends \BootPress\Form\Component
     /**
      * This is to add html tags, or semicolons, or asterisks, or whatever you would like to all of the form's prompts.
      *
-     * @param string      $place    Either '**info**', '**append**', or '**prepend**' to the prompt.  You only have one shot at each
-     * @param string      $html     Whatever you would like to add.  For '**info**', this will be the icon class you want to use
-     * @param false|mixed $required If ``$place == 'prepend'`` and this is anything but (bool) false, then the **$html** will only be prepended if the field is required per the ``$form->validator``.
+     * @param string $place    Either '**info**', '**append**', or '**prepend**' to the prompt.  You only have one shot at each.
+     * @param string $html     Whatever you would like to add.  For '**info**', this will be the icon class you want to use.
+     * @param mixed  $required If ``$place == 'prepend'`` and this is anything but (bool) false, then the **$html** will only be prepended if the ``$form->validator->required('field')``.
+     *
+     * @example
      *
      * ```php
      * $form->prompt('prepend', '<font color="red">*</font> ', 'required'); // If the field is required it will add a red asterisk to the front.
@@ -154,6 +162,12 @@ class Form extends \BootPress\Form\Component
      * @param array $validate Override the custom validator settings we have created for Bootstrap
      *
      * @return string
+     *
+     * @example
+     *
+     * ```php
+     * echo $form->header();
+     * ```
      */
     public function header(array $validate = array())
     {
@@ -183,14 +197,17 @@ class Form extends \BootPress\Form\Component
     /**
      * Creates checkboxes from the ``$form->menu($field)`` you set earlier.
      *
-     * @param string      $field      The checkbox's name
-     * @param string[]    $attributes Anything else you would like to add besides the 'name', 'value', 'checked', and data validation attributes
-     * @param false|mixed $inline     This tells us if you want the checkboxes to be inline (any value but false), or not (false)
+     * @param string $field      The checkbox's name.
+     * @param array  $attributes Anything else you would like to add besides the 'name', 'value', 'checked', and data validation attributes.
+     * @param mixed  $inline     This tells us if you want the checkboxes to be inline (any value but false), or not (false).
      *
      * @return string A checkbox ``<label><input type="checkbox" ...></label>`` html tag.
      *
+     * @example
+     *
      * ```php
      * $form->menu('remember', array('Y'=>'Remember Me'));
+     * $form->validator->set('remember', 'yesNo');
      *
      * echo $form->checkbox('remember');
      * ```
@@ -210,11 +227,13 @@ class Form extends \BootPress\Form\Component
     /**
      * Creates radio buttons from the ``$form->menu($field)`` you set earlier.
      *
-     * @param string      $field      The radio button's name
-     * @param string[]    $attributes Anything else you would like to add besides the 'name', 'value', 'checked', and data validation attributes
-     * @param false|mixed $inline     This tells us if you want the radio buttons to be inline (any value but false), or not (false)
+     * @param string $field      The radio button's name.
+     * @param array  $attributes Anything else you would like to add besides the 'name', 'value', 'checked', and data validation attributes.
+     * @param mixed  $inline     This tells us if you want the radio buttons to be inline (any value but false), or not (false).
      *
      * @return string Radio ``<label><input type="radio" ...></label>`` html tags.
+     *
+     * @example
      *
      * ```php
      * $form->menu('gender', array('M'=>'Male', 'F'=>'Female'));
@@ -236,13 +255,15 @@ class Form extends \BootPress\Form\Component
     }
 
     /**
-     * Group an input field with addons.  You can prepend and/or append a ``$bp->button(...)``, ``$bp->icon('...')``, or just a string of text.  To prepend or append multiple elements, then make it an ``array($html, ...)`` of addons.
+     * Group an input field with addons.  You can prepend and/or append a ``$bp->button(...)``, ``$bp->icon(...)``, or just a string of text.  To prepend or append multiple elements, then make it an ``array($html, ...)`` of addons.
      *
-     * @param string|array $prepend An element to place before the $input
-     * @param string|array $append  An element to place after the $input
-     * @param string       $input   The form field to wrap
+     * @param string|array $prepend An element to place before the $input.
+     * @param string|array $append  An element to place after the $input.
+     * @param string       $input   The form field to wrap.
      *
      * @return string A ``<div class="input-group">...</div>`` html string.
+     *
+     * @example
      *
      * ```php
      * echo $form->group('$', '.00', $form->text('amount'));
@@ -273,11 +294,13 @@ class Form extends \BootPress\Form\Component
     /**
      * Adds a (properly formatted) **$prompt** to your **$input** field, and manages any error messages.
      *
-     * @param string|array $prompt For the **$input** field.  If you want to include additional info that will appear when clicked or hovered over, then you can either make this an ``array($prompt => $info)`` or an ``array($prompt, $info)``.  To customize the icon used, set ``$form->prompt('info', 'fa fa-info-circle')``
-     * @param string       $input  A form field, or help block, etc
-     * @param string       $error  An optional error to override, and include with the field
+     * @param string|array $prompt For the **$input** field.  If you want to include additional info that will appear when clicked or hovered over, then you can make this an ``array($prompt => $info)``.  To customize the icon used, set ``$form->prompt('info', 'fa fa-info-circle')``.
+     * @param string       $input  A form field, or help block, etc.
+     * @param string       $error  An optional error to override, and include with the field.
      *
      * @return string A ``<div class="form-group">...</div>`` html string.
+     *
+     * @example
      *
      * ```php
      * echo $form->field('Amount', $form->group('$', '.00', $form->text('amount')));
@@ -335,10 +358,12 @@ class Form extends \BootPress\Form\Component
     /**
      * Quickly adds a submit button to your form.
      *
-     * @param string $submit What you would like the submit button to say.  If it starts with a '**<**', then we assume you have spelled it all out for us
-     * @param string $reset  This will add a reset button if you give it a value, and if it starts with a '**<**' then it can be whatever you want it to be.  You can keep adding args until you run out of ideas for buttons to include
+     * @param string $submit What you would like the submit button to say.  If it starts with a '**<**', then we assume you have spelled it all out for us.
+     * @param string $reset  This will add a reset button if you give it a value, and if it starts with a '**<**' then it can be whatever you want it to be.  You can keep adding args until you run out of ideas for buttons to include.
      *
      * @return string A ``<div class="form-group">...</div>`` html string with buttons.
+     *
+     * @example
      *
      * ```php
      * echo $form->submit();
