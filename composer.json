@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "bootpress/page": "^1.0",
+        "bootpress/page": "^1.1",
         "bootpress/form": "^1.0",
         "bootpress/validator": "^1.0",
         "bootpress/pagination": "^1.0",
