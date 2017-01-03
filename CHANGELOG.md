@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [1.0.1] - 2017-01-03
+## [1.1] - 2017-01-03
 ### Added
 - Form flash messages
 
