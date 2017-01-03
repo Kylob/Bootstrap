@@ -76,7 +76,7 @@ class Form extends \BootPress\Form\Component
      */
     public function message($status, $message)
     {
-        $this->page->session->getFlashBag()->add($this->header['name'], array(
+        $this->page->session->setFlash(array(__CLASS__, $this->header['name']), array(
             'status' => $status,
             'msg' => $message,
         ));
@@ -183,8 +183,8 @@ class Form extends \BootPress\Form\Component
             'onkeyup' => 'false',
         ), $validate));
         $html = "\n";
-        if ($flash = $this->page->session->getFlashBag()->get($this->header['name'])) {
-            $html .= ($flash[0]['status'] == 'html') ? $flash[0]['msg'] : $this->bp->alert($flash[0]['status'], $flash[0]['msg']);
+        if ($flash = $this->page->session->getFlash(array(__CLASS__, $this->header['name']))) {
+            $html .= ($flash['status'] == 'html') ? $flash['msg'] : $this->bp->alert($flash['status'], $flash['msg']);
         }
         $html .= trim(parent::header());
         if (!empty($this->align)) {
