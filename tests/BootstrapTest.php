@@ -75,6 +75,7 @@ class BootstrapTest extends \BootPress\HTMLUnit\Component
         // form message, header, and close methods
         $form->align();
         $form->message('success', 'Custom message');
+        \BootPress\Page\Session::$started = null; // reset and advance flash messages
         $this->assertEqualsRegExp(array(
             '<div class="alert alert-success alert-dismissable" role="alert">',
                 '<button type="button" class="close" data-dismiss="alert">',
