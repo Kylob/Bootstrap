@@ -2,6 +2,7 @@
     "name": "bootpress/bootstrap",
     "description": "Create Bootstrap grids, tables, forms, buttons, dropdowns, groups, navs, breadcrumbs, pagination, panels, accordions, carousels, etc ... all without touching a single div!",
     "keywords": ["bootpress", "bootstrap", "bootstrap3", "css", "framework"],
+    "homepage": "https://www.bootpress.org/components/bootstrap.html",
     "license": "MIT",
     "authors": [
         {
