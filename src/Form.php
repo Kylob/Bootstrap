@@ -425,7 +425,7 @@ class Form extends \BootPress\Form\Component
                 'style' => 'cursor:pointer;',
                 'data-html' => 'true',
                 'data-toggle' => 'tooltip',
-                'data-placement' => 'bottom',
+                'data-placement' => 'right',
                 'data-container' => 'form[name='.$this->header['name'].']',
             ), '');
             $this->page->jquery('$(\'[data-toggle="tooltip"]\').tooltip();');
